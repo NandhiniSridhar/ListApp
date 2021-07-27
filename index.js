@@ -9,10 +9,50 @@ fetch(url).then(function(result){
     displayResults(json)
 })
 
-function displayResults(){
-    const articles = json.response.docs;
-      
-}
+function displayResults(jsonRes){
+    const articles = jsonRes.results;
+    for(let i = 0; i < articles.length; i++){
+        section = document.getElementById("nyt");
+        const article = document.createElement('article');
+        const heading = document.createElement('h2');
+        const link = document.createElement('a');
+        //const img = document.createElement('img');
+        const para1 = document.createElement('p');
+        //const para2 = document.createElement('p');
+        const clearfix = document.createElement('div');
+
+        let current = articles[i];
+        console.log(current);
+        heading.innerHTML = current.title;
+        link.innerHTML = current.url;
+        para1.innerText = current.abstract;
+        /*link.href = current.web_url;
+        link.textContent = current.headline.main;
+        para1.textContent = current.snippet;
+        para2.textContent = 'Keywords: ';
+        
+        for(let j = 0; j < current.keywords.length; j++){
+            const span = document.createElement("span");
+            span.textContent += current.keywords[j].value + ' ';
+            para2.appendChild(span);
+        }//j
+
+        if(current.multimedia.length > 0){
+            img.src = 'http://www.nytimes.com/' + current.multimedia[0].url;
+            img.alt = current.headline.main;
+        }
+
+        clearfix.setAttribute('class','clearfix');
+        */
+        article.appendChild(heading);
+        heading.appendChild(link);
+        //article.appendChild(img);
+        article.appendChild(para1);
+        //article.appendChild(para2);
+        article.appendChild(clearfix);
+        section.appendChild(article);
+    }  //i
+}//function
 
 function displayMessage(){
     //alert("hello!");
