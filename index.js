@@ -23,8 +23,9 @@ function displayResults(jsonRes){
 
         let current = articles[i];
         console.log(current);
-        heading.innerHTML = current.title;
-        link.innerHTML = current.url;
+        //heading.innerHTML = current.title;
+        link.href = current.url;
+        link.innerHTML = current.title;
         para1.innerText = current.abstract;
         /*link.href = current.web_url;
         link.textContent = current.headline.main;
