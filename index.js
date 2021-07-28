@@ -1,3 +1,46 @@
+//welcome message
+function getName(){
+    //console.log("getName called");
+    Name = document.getElementById("Name").value;
+    //console.log(Name);
+    if(typeof(Storage) != "undefined"){
+        localStorage.setItem("personName", Name);//(document.getElementById("Name")).value);
+    }
+}
+
+function welcomeMessage(inputName){
+    //console.log("welcome called");
+
+    let welcome = document.getElementById("welcomeStatement");
+    if(welcome == null){
+        console.log("Sorry, the item is null");
+    }
+    //console.log(welcome.innerHTML);  
+    
+    if(typeof(Storage) != "undefined"){
+        document.getElementById("welcomeStatement").innerHTML += localStorage.getItem("personName");
+    }
+    else{
+        console.log("browser bad- doesn't support web storage");
+    }
+    
+    // doesn't work - need to figure how to make vars persist across pages
+}
+
+//for to do list
+function displayMessage(){
+    //alert("hello!");
+    //console.log("entered function");
+    let listItem = document.createElement("li");
+    let listItemText = (document.getElementById("inputText")).value;
+    //alert("hello");
+    //console.log(listItemText);
+    listItem.innerHTML = listItemText;
+    document.getElementById("list").appendChild(listItem);
+    //alert(listItemText);
+    //listItem.innerHTML
+}
+
 //fot new york times api request
 const nytBaseUrl = 'https://api.nytimes.com/svc/topstories/v2/home.json?';//api-key=yourkey'
 const nytKey = '1ImkjMiVW3f6WMAIzdTlOXD7B1fND6CH';
@@ -54,7 +97,7 @@ fetch(qotdBaseUrl).then(function(result){
 })*/
 
 function displayQotdResuls(jsonRes){
-    console.log("inside qotd display");
+    //console.log("inside qotd display");
     //const curQuote = jsonRes.quote;
     //console.log(JSON.stringify(jsonRes));
     cur = jsonRes.contents;
@@ -66,26 +109,13 @@ function displayQotdResuls(jsonRes){
 
 
     quote.innerHTML = "\'" + cur.quotes[0].quote + "\'";
-    console.log(quote.innerHTML);
+    //console.log(quote.innerHTML);
     author.innerHTML = "- " + cur.quotes[0].author;
-    console.log(author)
+    //console.log(author)
 
     section.appendChild(quote);
     section.appendChild(author);
     return;
 }
 
-//for to do list
-function displayMessage(){
-    //alert("hello!");
-    console.log("entered function");
-    let listItem = document.createElement("li");
-    let listItemText = (document.getElementById("inputText")).value;
-    //alert("hello");
-    console.log(listItemText);
-    listItem.innerHTML = listItemText;
-    document.getElementById("list").appendChild(listItem);
-    //alert(listItemText);
-    //listItem.innerHTML
-}
 

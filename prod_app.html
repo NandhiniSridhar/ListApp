@@ -3,16 +3,16 @@
     <head>
         <title>To Do List</title>
         <script src = "index.js"></script>
+        
     </head>
 
-    <body>
+    <body onload = "welcomeMessage()">
     
         <!-- to do list-->
         <div>
-            <h1>Add you todo list items here!</h1>
+            <h1 id="welcomeStatement" >Welcome, </h1>
+            <h1>Add your todo list items here!</h1>
             <ul id="list">
-                <!-- <li>thing 1</li>
-                <li>thing 2</li> -->
             </ul>    
             <input type="text" id="inputText"> <br>
             <button id="add" onclick="displayMessage()">Add</button>
