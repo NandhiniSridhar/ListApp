@@ -1,15 +1,17 @@
-//fot new york times thing
-const baseUrl = 'https://api.nytimes.com/svc/topstories/v2/home.json?';//api-key=yourkey'
-const key = '1ImkjMiVW3f6WMAIzdTlOXD7B1fND6CH';
-let url = baseUrl + 'api-key=' + key;
+//fot new york times api request
+const nytBaseUrl = 'https://api.nytimes.com/svc/topstories/v2/home.json?';//api-key=yourkey'
+const nytKey = '1ImkjMiVW3f6WMAIzdTlOXD7B1fND6CH';
+let nytUrl = nytBaseUrl + 'api-key=' + nytKey;
 
-fetch(url).then(function(result){
+fetch(nytUrl).then(function(result){
     return result.json();
 }).then(function(json){
-    displayResults(json)
+    displayNytResults(json);
+}).catch(function(err){
+    console.log("Cannot display NYT articles at this time");
 })
 
-function displayResults(jsonRes){
+function displayNytResults(jsonRes){
     const articles = jsonRes.results;
     for(let i = 0; i < articles.length; i++){
         section = document.getElementById("nyt");
@@ -22,29 +24,12 @@ function displayResults(jsonRes){
         const clearfix = document.createElement('div');
 
         let current = articles[i];
-        console.log(current);
+        //console.log(current);
         //heading.innerHTML = current.title;
         link.href = current.url;
         link.innerHTML = current.title;
         para1.innerText = current.abstract;
-        /*link.href = current.web_url;
-        link.textContent = current.headline.main;
-        para1.textContent = current.snippet;
-        para2.textContent = 'Keywords: ';
-        
-        for(let j = 0; j < current.keywords.length; j++){
-            const span = document.createElement("span");
-            span.textContent += current.keywords[j].value + ' ';
-            para2.appendChild(span);
-        }//j
-
-        if(current.multimedia.length > 0){
-            img.src = 'http://www.nytimes.com/' + current.multimedia[0].url;
-            img.alt = current.headline.main;
-        }
-
-        clearfix.setAttribute('class','clearfix');
-        */
+       
         article.appendChild(heading);
         heading.appendChild(link);
         //article.appendChild(img);
@@ -53,8 +38,44 @@ function displayResults(jsonRes){
         article.appendChild(clearfix);
         section.appendChild(article);
     }  //i
+    return;
 }//function
 
+//for quote of the day
+
+const qotdBaseUrl = "https://quotes.rest/qod?category=inspire&language=en";
+
+fetch(qotdBaseUrl).then(function(result){
+    return result.json();
+}).then(function(jsonRes){
+    displayQotdResuls(jsonRes);
+})/*.catch(function(err){
+    console.log("Cannot display quote of the day at this time");
+})*/
+
+function displayQotdResuls(jsonRes){
+    console.log("inside qotd display");
+    //const curQuote = jsonRes.quote;
+    //console.log(JSON.stringify(jsonRes));
+    cur = jsonRes.contents;
+    //console.log(cur.quotes[0].quote);
+    //console.log(JSON.stringify(curquotetext));
+    section = document.getElementById('qotd');
+    quote = document.createElement('h3');
+    author = document.createElement('p');
+
+
+    quote.innerHTML = "\'" + cur.quotes[0].quote + "\'";
+    console.log(quote.innerHTML);
+    author.innerHTML = "- " + cur.quotes[0].author;
+    console.log(author)
+
+    section.appendChild(quote);
+    section.appendChild(author);
+    return;
+}
+
+//for to do list
 function displayMessage(){
     //alert("hello!");
     console.log("entered function");
