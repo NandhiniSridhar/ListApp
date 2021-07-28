@@ -1,0 +1,83 @@
+#welcomeStatement{
+    text-align:justify;
+    font-family:sans-serif;
+    font-size: 3em;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+/*general*/
+h1{
+    font-family: sans-serif;  
+}
+a{
+    color:black;
+    font-family: sans-serif;
+    font-size: 0.75em;
+}
+p{
+    font-family: sans-serif;
+}
+.flex-container{
+    display: flex;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 5%;
+    justify-content: center;
+    /*background-color: pink;*/
+    flex-wrap: wrap;
+    flex-direction: row;
+    /*background-color: blue;*/
+}
+
+.flex-col{
+    width: 50%;
+    /*background-color: red;*/
+}
+.flex-item{
+    width: 95%;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    /*border: 1px solid black;
+    bor: green;*/
+}
+
+/*welcome*/
+#Name{
+    width: 50%;
+    padding:0.75em;
+    /*border-style: hidden;*/
+}
+#next{
+    padding: 0.75em;
+}
+/*to do list*/
+#todo{
+    background-color: lightpink;
+}
+#inputText{
+    width: 50%;
+    padding:0.75em;
+    /*border-style: hidden;*/
+}
+#add{
+    padding: 0.75em;
+}
+#list > li{
+    font-family: sans-serif;
+    font-style: oblique;
+    font-weight: bolder;
+}
+
+/*qotd*/
+#quoteOfTheDay{
+    background-color: lightyellow;
+}
+#qotd > h3{
+    font-family: sans-serif;
+}
+/*new york times*/
+#newYorkTimes{
+    background-color: lightgreen;
+}
