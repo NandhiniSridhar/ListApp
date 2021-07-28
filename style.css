@@ -10,6 +10,7 @@ h1{
     font-family: sans-serif;  
 }
 a{
+    text-decoration: none;
     color:black;
     font-family: sans-serif;
     font-size: 0.75em;
@@ -19,11 +20,10 @@ p{
 }
 .flex-container{
     display: flex;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-bottom: 5%;
     justify-content: center;
-    /*background-color: pink;*/
     flex-wrap: wrap;
     flex-direction: row;
     /*background-color: blue;*/
@@ -39,8 +39,8 @@ p{
     margin-bottom: 1vh;
     margin-left: 2.5%;
     margin-right: 2.5%;
-    /*border: 1px solid black;
-    bor: green;*/
+    /*border: 1px solid black;*/
+    
 }
 
 /*welcome*/
