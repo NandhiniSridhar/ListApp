@@ -54,7 +54,11 @@ p{
 }
 /*to do list*/
 #todo{
-    background-color: lightpink;
+    background-color: #ffc3c1;
+}
+#todo > h1{
+    color: #ad1637;
+    font-style: oblique;
 }
 #inputText{
     width: 50%;
@@ -74,10 +78,21 @@ p{
 #quoteOfTheDay{
     background-color: lightyellow;
 }
+#quoteOfTheDay > h1{
+    color: #d6c406;
+    font-style: oblique;
+}
 #qotd > h3{
     font-family: sans-serif;
 }
 /*new york times*/
 #newYorkTimes{
-    background-color: lightgreen;
+    background-color: #c1ffc6;
+}
+#newYorkTimes > h1{
+    color: #0f6b07;
+    font-style: oblique;
+}
+#nyt >h2> a{
+    text-decoration: underline;
 }

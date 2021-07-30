@@ -118,4 +118,20 @@ function displayQotdResuls(jsonRes){
     return;
 }
 
+// for unsplash images
+function getPhotoSize(){
+    let url = "https://source.unsplash.com/random/";
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+
+    let w = Math.ceil(width * 0.475 );
+    let h = Math.ceil(w * 0.75);
+    url = url + w + "x" + h;
+    console.log(url);
+    document.getElementById("unsplashImg").src = url;
+
+    //document.getElementById("unsplashImg").width = "width * 0.475";
+    //document.getElementById("unsplashImg").height = "width * 0.475 * 0.75";
+}
+
 
